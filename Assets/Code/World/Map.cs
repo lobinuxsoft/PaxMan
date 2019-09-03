@@ -60,6 +60,7 @@ public class Map : MonoBehaviour
                 if (line[x] == '.')
                 {
                     SmallDot dot = GameObject.Instantiate(SmallDotPrefab).GetComponent<SmallDot>();
+                    dot.name = string.Format("SmallDot X= {0:0} Y= {1:0}", x, y);
                     dot.SetPosition(new Vector2((x - (line.Length / 2)) * 22 + 11, (-y + (lines.Length / 2)) * 22));
                     dotCount++;
                 }
