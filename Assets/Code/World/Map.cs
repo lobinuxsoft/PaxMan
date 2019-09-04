@@ -1,37 +1,33 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Map : MonoBehaviour
 {
-    public GameObject SmallDotPrefab;
-    public GameObject LargeDotPrefab;
+    [SerializeField] private Tilemap levelMap;
+    [SerializeField] private TileBase floorTile = null;
+    [SerializeField] private TileBase wallTile = null;
 
-    public int dotCount = 0;
+    [SerializeField] private GameObject SmallDotPrefab;
+    [SerializeField] private GameObject LargeDotPrefab;
+
+    [SerializeField] private int dotCount = 0;
     public int DotCount { get { return dotCount; } }
 
-    public List<SmallDot> smallDots = new List<SmallDot>();
-    public List<BigDot> bigDots = new List<BigDot>();
-    public List<PathmapTile> tiles = new List<PathmapTile>();
-    public List<Cherry> cherry = new List<Cherry>();
+    [SerializeField] private List<SmallDot> smallDots = new List<SmallDot>();
+    [SerializeField] private List<BigDot> bigDots = new List<BigDot>();
+    [SerializeField] private List<PathmapTile> tiles = new List<PathmapTile>();
+    [SerializeField] private List<Cherry> cherry = new List<Cherry>();
 
     // Start is called before the first frame update
     void Start()
     {
         InitPathmap();
         InitDots();
-        initBigDots();
+        InitBigDots();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    public bool InitPathmap()
+    private void InitPathmap()
     {
         string[] lines = System.IO.File.ReadAllLines("Assets/Data/map.txt");
         for (int y = 0; y < lines.Length; y++)
@@ -39,17 +35,37 @@ public class Map : MonoBehaviour
             char[] line = lines[y].ToCharArray();
             for (int x = 0; x < line.Length; x++)
             {
-                PathmapTile tile = new PathmapTile();
-                tile.posX = x;
-                tile.posY = y;
-                tile.blocking = line[x] == 'x';
+                PathmapTile tile = new PathmapTile
+                {
+                    posX = x - (line.Length / 2),
+                    posY = -(y - (lines.Length / 2)),
+                    blocking = line[x] == 'x'
+                };
+
+                //Here create a graphic map
+                Vector3Int tilePos = new Vector3Int(tile.posX, tile.posY, 0);
+
+                if (tile.blocking)
+                {
+                    if (levelMap)
+                    {
+                        levelMap.SetTile(tilePos, wallTile);
+                    }
+                }
+                else
+                {
+                    if (levelMap)
+                    {
+                        levelMap.SetTile(tilePos, floorTile);
+                    }
+                }
+
                 tiles.Add(tile);
             }
         }
-        return true;
     }
 
-    public bool InitDots()
+    private void InitDots()
     {
         string[] lines = System.IO.File.ReadAllLines("Assets/Data/map.txt");
         for (int y = 0; y < lines.Length; y++)
@@ -59,17 +75,24 @@ public class Map : MonoBehaviour
             {
                 if (line[x] == '.')
                 {
-                    SmallDot dot = GameObject.Instantiate(SmallDotPrefab).GetComponent<SmallDot>();
-                    dot.name = string.Format("SmallDot X= {0:0} Y= {1:0}", x, y);
-                    dot.SetPosition(new Vector2((x - (line.Length / 2)) * 22 + 11, (-y + (lines.Length / 2)) * 22));
+                    Vector3Int tilePos = Vector3Int.zero;
+                    tilePos.x = x - (line.Length / 2);
+                    tilePos.y = -(y - (lines.Length / 2));
+
+                    Vector3 worldPos = levelMap.CellToWorld(tilePos);
+                    worldPos.x += .5f;
+                    worldPos.y += .5f;
+
+                    SmallDot dot = Instantiate(SmallDotPrefab, levelMap.transform).GetComponent<SmallDot>();
+                    dot.name = string.Format("SmallDot X= {0:0} Y= {1:0}", tilePos.x, tilePos.y);
+                    dot.SetPosition(worldPos);
                     dotCount++;
                 }
             }
         }
-        return true;
     }
 
-    public bool initBigDots()
+    public void InitBigDots()
     {
         string[] lines = System.IO.File.ReadAllLines("Assets/Data/map.txt");
         for (int y = 0; y < lines.Length; y++)
@@ -79,13 +102,20 @@ public class Map : MonoBehaviour
             {
                 if (line[x] == 'o')
                 {
-                    BigDot dot = GameObject.Instantiate(LargeDotPrefab).GetComponent<BigDot>();
-                    dot.SetPosition(new Vector2((x - (line.Length / 2)) * 22 + 11, (-y + (lines.Length / 2)) * 22));
+                    Vector3Int tilePos = Vector3Int.zero;
+                    tilePos.x = x - (line.Length / 2);
+                    tilePos.y = -(y - (lines.Length / 2));
+
+                    Vector3 worldPos = levelMap.CellToWorld(tilePos);
+                    worldPos.x += .5f;
+                    worldPos.y += .5f;
+
+                    BigDot dot = Instantiate(LargeDotPrefab).GetComponent<BigDot>();
+                    dot.SetPosition(worldPos);
                     dotCount++;
                 }
             }
         }
-        return true;
     }
 
     internal bool TileIsValid(int tileX, int tileY)
@@ -170,6 +200,7 @@ public class Map : MonoBehaviour
         return null;
     }
 
+    //TODO modify this methods for new colision implementation
     public bool HasIntersectedDot(Vector2 aPosition)
     {
         for (int d = 0; d < smallDots.Count; d++)

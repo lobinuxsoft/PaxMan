@@ -1,18 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Events;
 
+[RequireComponent(typeof(CircleCollider2D))]
 public class StaticEntity : Entity
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    protected UnityEvent OnCollectionEvent;
+    public void AddOnCollectionEvent(UnityAction method) { OnCollectionEvent.AddListener(method); }
 }

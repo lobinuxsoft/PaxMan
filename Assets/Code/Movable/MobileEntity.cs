@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(CircleCollider2D))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class MobileEntity : Entity
 {
     public enum MovementDirection : int
@@ -11,29 +13,25 @@ public class MobileEntity : Entity
         DirectionCount = 4
     };
 
-    public int currentTileX;
-    public int currentTileY;
-    public int nextTileX;
-    public int nextTileY;
+    protected int currentTileX;
+    protected int currentTileY;
+    protected int nextTileX;
+    protected int nextTileY;
+    protected Rigidbody2D rigidbody2D;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        rigidbody2D = GetComponent<Rigidbody2D>();
         nextTileX = currentTileX;
         nextTileY = currentTileY;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 
     public bool IsAtDestination()
     {
         if (currentTileX == nextTileX && currentTileY == nextTileY)
         {
-
-
             return true;
         }
 

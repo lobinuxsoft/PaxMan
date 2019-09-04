@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,13 +18,13 @@ public class Game : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Avatar = GameObject.Instantiate(PacManPrefab).GetComponent<PacMan>();
+        Avatar = Instantiate(PacManPrefab).GetComponent<PacMan>();
         Avatar.SetPosition(new Vector2Int(13, 16));
         lives = 3;
         Ghosts = new List<Ghost>();
         for(int g = 0; g < 4; g++)
         {
-            Ghosts.Add(GameObject.Instantiate(GhostPrefab).GetComponent<Ghost>());
+            Ghosts.Add(Instantiate(GhostPrefab).GetComponent<Ghost>());
             Ghosts[g].SetPosition(new Vector2Int(13, 13));
         }
     }

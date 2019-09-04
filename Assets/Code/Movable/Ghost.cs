@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -128,7 +127,7 @@ public class Ghost : MobileEntity
     private void BehaveChase(Map map, PacMan avatar)
     {
         path.Clear();
-        path = map.GetPath(currentTileX, currentTileY, avatar.currentTileX, avatar.currentTileY);
+        path = map.GetPath(currentTileX, currentTileY, avatar.GetCurrentTileX(), avatar.GetCurrentTileY());
     }
 
     private void BehaveVulnerable()

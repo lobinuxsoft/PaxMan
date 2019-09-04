@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7629479501448263631}
   - component: {fileID: 9071753521365911511}
-  - component: {fileID: 7954730916182686650}
+  - component: {fileID: 1251887710908455718}
+  - component: {fileID: 7744325822634504907}
   m_Layer: 0
   m_Name: BigDot
   m_TagString: Untagged
@@ -71,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 462380463
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: fdf6eb570ff792048b2779ce37e6d30b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -85,7 +86,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7954730916182686650
+--- !u!114 &1251887710908455718
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,3 +98,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 886fb2cfe80006448b7ee36dd8ec4d05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!58 &7744325822634504907
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8769900793030285900}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
