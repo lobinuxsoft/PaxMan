@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Game : MonoBehaviour
 {
+    public static Game instance;
     public GameObject PacManPrefab;
     public GameObject GhostPrefab;
 
@@ -13,7 +14,14 @@ public class Game : MonoBehaviour
     public List<Ghost> Ghosts;
     public int lives;
     public int score;
-    public float myGhostGhostCounter;
+    public float myGhostGhostCounter = 20f;
+
+    private float lastClaimableOn = 0;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -53,26 +61,7 @@ public class Game : MonoBehaviour
             Ghosts[g].onUpdate(Map, Avatar);
         }
 
-        if (Map.HasIntersectedDot(Avatar.GetPosition()))
-        {
-            UpdateScore(10);
-            if (Map.DotCount == 0)
-            {
-            }
-        }
-
-        myGhostGhostCounter -= Time.deltaTime;
-        if (Map.HasIntersectedBigDot(Avatar.GetPosition()))
-        {
-            UpdateScore(20);
-            myGhostGhostCounter = 20.0f;
-            for (int g = 0; g < Ghosts.Count; g++)
-            {
-                Ghosts[g].isClaimable = true;
-            }
-        }
-
-        if (myGhostGhostCounter <= 0)
+        if ((Time.time - lastClaimableOn) > myGhostGhostCounter)
         {
             for (int g = 0; g < Ghosts.Count; g++)
             {
@@ -80,6 +69,7 @@ public class Game : MonoBehaviour
             }
         }
 
+        //TODO Evaluate this lines
         for (int g = 0; g < Ghosts.Count; g++)
         {
             if ((Ghosts[g].GetPosition() - Avatar.GetPosition()).magnitude < 16.0f)
@@ -163,6 +153,21 @@ public class Game : MonoBehaviour
             {
                 Avatar.SetNextTile(new Vector2Int(nextTileX, nextTileY));
             }
+        }
+    }
+
+    public void CollectSmallDot()
+    {
+        UpdateScore(10);
+    }
+
+    public void CollectBigDot()
+    {
+        UpdateScore(20);
+        lastClaimableOn = Time.time;
+        for (int g = 0; g < Ghosts.Count; g++)
+        {
+            Ghosts[g].isClaimable = true;
         }
     }
 }

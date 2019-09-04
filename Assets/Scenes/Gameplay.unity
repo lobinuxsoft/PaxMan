@@ -143,12 +143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelMap: {fileID: 588669466}
-  floorTile: {fileID: 11400000, guid: 3e51e581f3205fe40989a68346aa7599, type: 2}
-  wallTile: {fileID: 11400000, guid: 799304624118a7c4eaf6106484f6765b, type: 2}
-  SmallDotPrefab: {fileID: 3297448492165407585, guid: 9ed397e9b08fc9e429bb3fcb4f4270b6,
-    type: 3}
-  LargeDotPrefab: {fileID: 8769900793030285900, guid: dd5952e74777e3b44aa3af401a19f44a,
-    type: 3}
+  mapData: {fileID: 11400000, guid: 6bdff9fe8f4abff42936a0a90ace831d, type: 2}
   dotCount: 0
   smallDots: []
   bigDots: []

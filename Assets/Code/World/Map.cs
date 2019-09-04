@@ -4,20 +4,20 @@ using UnityEngine.Tilemaps;
 
 public class Map : MonoBehaviour
 {
+    [Tooltip("The base tile map for generate in runtime an obtain data")]
     [SerializeField] private Tilemap levelMap;
-    [SerializeField] private TileBase floorTile = null;
-    [SerializeField] private TileBase wallTile = null;
-
-    [SerializeField] private GameObject SmallDotPrefab;
-    [SerializeField] private GameObject LargeDotPrefab;
+    [SerializeField] private MapData mapData;
 
     [SerializeField] private int dotCount = 0;
     public int DotCount { get { return dotCount; } }
 
-    [SerializeField] private List<SmallDot> smallDots = new List<SmallDot>();
-    [SerializeField] private List<BigDot> bigDots = new List<BigDot>();
     [SerializeField] private List<PathmapTile> tiles = new List<PathmapTile>();
-    [SerializeField] private List<Cherry> cherry = new List<Cherry>();
+
+    //[SerializeField] private List<SmallDot> smallDots = new List<SmallDot>();
+    //[SerializeField] private List<BigDot> bigDots = new List<BigDot>();
+    //[SerializeField] private List<Cherry> cherry = new List<Cherry>();
+
+    int mapIndex = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +29,12 @@ public class Map : MonoBehaviour
 
     private void InitPathmap()
     {
-        string[] lines = System.IO.File.ReadAllLines("Assets/Data/map.txt");
+        //Initialize random index for mapData.mapsTxtFilePath mapData.wallTile
+        Random.InitState(Mathf.RoundToInt(Time.unscaledTime));
+        mapIndex = Random.Range(0, mapData.mapsTxtFilePath.Length);
+        int tileIndex = Random.Range(0,mapData.wallTiles.Count);
+
+        string[] lines = System.IO.File.ReadAllLines(mapData.mapsTxtFilePath[mapIndex]);
         for (int y = 0; y < lines.Length; y++)
         {
             char[] line = lines[y].ToCharArray();
@@ -49,14 +54,14 @@ public class Map : MonoBehaviour
                 {
                     if (levelMap)
                     {
-                        levelMap.SetTile(tilePos, wallTile);
+                        levelMap.SetTile(tilePos, mapData.wallTiles[tileIndex]);
                     }
                 }
                 else
                 {
                     if (levelMap)
                     {
-                        levelMap.SetTile(tilePos, floorTile);
+                        levelMap.SetTile(tilePos, null);
                     }
                 }
 
@@ -67,7 +72,7 @@ public class Map : MonoBehaviour
 
     private void InitDots()
     {
-        string[] lines = System.IO.File.ReadAllLines("Assets/Data/map.txt");
+        string[] lines = System.IO.File.ReadAllLines(mapData.mapsTxtFilePath[mapIndex]);
         for (int y = 0; y < lines.Length; y++)
         {
             char[] line = lines[y].ToCharArray();
@@ -83,7 +88,7 @@ public class Map : MonoBehaviour
                     worldPos.x += .5f;
                     worldPos.y += .5f;
 
-                    SmallDot dot = Instantiate(SmallDotPrefab, levelMap.transform).GetComponent<SmallDot>();
+                    SmallDot dot = Instantiate(mapData.smallDot, levelMap.transform).GetComponent<SmallDot>();
                     dot.name = string.Format("SmallDot X= {0:0} Y= {1:0}", tilePos.x, tilePos.y);
                     dot.SetPosition(worldPos);
                     dotCount++;
@@ -94,7 +99,7 @@ public class Map : MonoBehaviour
 
     public void InitBigDots()
     {
-        string[] lines = System.IO.File.ReadAllLines("Assets/Data/map.txt");
+        string[] lines = System.IO.File.ReadAllLines(mapData.mapsTxtFilePath[mapIndex]);
         for (int y = 0; y < lines.Length; y++)
         {
             char[] line = lines[y].ToCharArray();
@@ -110,7 +115,7 @@ public class Map : MonoBehaviour
                     worldPos.x += .5f;
                     worldPos.y += .5f;
 
-                    BigDot dot = Instantiate(LargeDotPrefab).GetComponent<BigDot>();
+                    BigDot dot = Instantiate(mapData.bigDot).GetComponent<BigDot>();
                     dot.SetPosition(worldPos);
                     dotCount++;
                 }
@@ -118,6 +123,7 @@ public class Map : MonoBehaviour
         }
     }
 
+    //TODO Evaluate this
     internal bool TileIsValid(int tileX, int tileY)
     {
         for (int t = 0; t < tiles.Count; t++)
@@ -128,6 +134,7 @@ public class Map : MonoBehaviour
         return false;
     }
 
+    //TODO Evaluate this
     public List<PathmapTile> GetPath(int currentTileX, int currentTileY, int targetX, int targetY)
     {
         PathmapTile fromTile = GetTile(currentTileX, currentTileY);
@@ -146,6 +153,7 @@ public class Map : MonoBehaviour
         return null;
     }
 
+    //TODO Evaluate this
     private bool Pathfind(PathmapTile fromTile, PathmapTile toTile, List<PathmapTile> path)
     {
         fromTile.visited = true;
@@ -189,6 +197,7 @@ public class Map : MonoBehaviour
         return false;
     }
 
+    //TODO Evaluate this
     public PathmapTile GetTile(int tileX, int tileY)
     {
         for (int t = 0; t < tiles.Count; t++)
@@ -201,39 +210,39 @@ public class Map : MonoBehaviour
     }
 
     //TODO modify this methods for new colision implementation
-    public bool HasIntersectedDot(Vector2 aPosition)
-    {
-        for (int d = 0; d < smallDots.Count; d++)
-        {
-            if ((smallDots[d].GetPosition() - aPosition).magnitude < 5.0f)
-            {
-                GameObject.DestroyImmediate(smallDots[d]);
-                smallDots.Remove(smallDots[d]);
-                return true;
-            }
-        }
+    //public bool HasIntersectedDot(Vector2 aPosition)
+    //{
+    //    for (int d = 0; d < smallDots.Count; d++)
+    //    {
+    //        if ((smallDots[d].GetPosition() - aPosition).magnitude < 5.0f)
+    //        {
+    //            GameObject.DestroyImmediate(smallDots[d]);
+    //            smallDots.Remove(smallDots[d]);
+    //            return true;
+    //        }
+    //    }
 
-        return false;
-    }
+    //    return false;
+    //}
 
-    public bool HasIntersectedBigDot(Vector2 aPosition)
-    {
-        for (int d = 0; d < bigDots.Count; d++)
-        {
-            if ((bigDots[d].GetPosition() - aPosition).magnitude < 5.0f)
-            {
-                GameObject.DestroyImmediate(bigDots[d]);
-                bigDots.Remove(bigDots[d]);
-                return true;
-            }
-        }
+    //public bool HasIntersectedBigDot(Vector2 aPosition)
+    //{
+    //    for (int d = 0; d < bigDots.Count; d++)
+    //    {
+    //        if ((bigDots[d].GetPosition() - aPosition).magnitude < 5.0f)
+    //        {
+    //            GameObject.DestroyImmediate(bigDots[d]);
+    //            bigDots.Remove(bigDots[d]);
+    //            return true;
+    //        }
+    //    }
 
-        return false;
-    }
+    //    return false;
+    //}
 
-    bool HasIntersectedCherry(Vector2 aPosition)
-    {
-        return true;
-    }
+    //bool HasIntersectedCherry(Vector2 aPosition)
+    //{
+    //    return true;
+    //}
 }
 
