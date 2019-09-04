@@ -1,6 +1,0 @@
-1°- Identificar bugs de la mecanica original y arreglarlos para ver que todo funcione
-	#.Areglada la mala ubicacion de uno de los "SmallDots", ese bug se originaba desde el map.txt ya que el archivo contenia espacios de mas.
-
-2°- Encontrar un GDD base de PacMan.
-
-3°- Evaluar si es necesario cambiar la idea original del codigo, sea por performance o practicidad.
