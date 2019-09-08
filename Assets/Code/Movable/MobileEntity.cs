@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(CircleCollider2D))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class MobileEntity : Entity
 {
     public enum MovementDirection : int
@@ -11,29 +13,25 @@ public class MobileEntity : Entity
         DirectionCount = 4
     };
 
-    public int currentTileX;
-    public int currentTileY;
-    public int nextTileX;
-    public int nextTileY;
+    [SerializeField] protected int currentTileX;
+    [SerializeField] protected int currentTileY;
+    [SerializeField] protected int nextTileX;
+    [SerializeField] protected int nextTileY;
+    protected Rigidbody2D rigidbody2D;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        rigidbody2D = GetComponent<Rigidbody2D>();
         nextTileX = currentTileX;
         nextTileY = currentTileY;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 
     public bool IsAtDestination()
     {
         if (currentTileX == nextTileX && currentTileY == nextTileY)
         {
-
-
             return true;
         }
 
@@ -56,16 +54,23 @@ public class MobileEntity : Entity
         return currentTileY;
     }
 
-    public void SetPosition(Vector2Int newPos)
+    public override void SetPosition(Vector3 position)
     {
-        transform.position = new Vector2(currentTileX * 22, -currentTileY * 22);
+        if (rigidbody2D)
+        {
+            position.x = position.x + .5f;
+            position.y = position.y + .5f;
+
+            rigidbody2D.MovePosition(position);
+        }
     }
 
-    public void Respawn(Vector2 respawnLocation)
+    public void Respawn(Vector3 respawnLocation, Vector3Int tileLocation)
     {
         SetPosition(respawnLocation);
-        currentTileX = (int)respawnLocation.x / 22;
-        currentTileY = (int)respawnLocation.y / 22;
+
+        currentTileX = tileLocation.x;
+        currentTileY = tileLocation.y;
         nextTileX = currentTileX;
         nextTileY = currentTileY;
     }

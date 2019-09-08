@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c73b99b501a0df446806b7b08b36645b, type: 3}
+  m_Name: MapData
+  m_EditorClassIdentifier: 
+  mapsTxtFilePath:
+  - D:/Repositorios/PaxMan/Assets/Data/map.txt
+  wallTiles:
+  - {fileID: 11400000, guid: 6cf68122e1dc32e41a4a78f5f92b16bd, type: 2}
+  smallDot: {fileID: 1008497766464315601, guid: 9ed397e9b08fc9e429bb3fcb4f4270b6,
+    type: 3}
+  bigDot: {fileID: 1251887710908455718, guid: dd5952e74777e3b44aa3af401a19f44a, type: 3}
+  fruits: []

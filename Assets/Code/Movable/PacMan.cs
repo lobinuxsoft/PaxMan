@@ -1,39 +1,42 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PacMan : MobileEntity
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    Vector2 destination = Vector2.zero;
+    Vector3 direction = Vector3.zero;
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        int tileSize = 22;
 
-        Vector2 destination = new Vector2(nextTileX * tileSize, nextTileY * tileSize);
+        destination = Game.instance.Map.GetWorldPosFromTile(new Vector3Int(nextTileX, nextTileY, 0));
         if (destination == Vector2.zero)
             return;
 
-        Vector2 direction = new Vector2(destination.x - transform.position.x, destination.y - transform.position.y);
+        direction = new Vector3(destination.x - transform.position.x, destination.y - transform.position.y);
 
-        float distanceToMove = Time.deltaTime * 100.0f;
+        float distanceToMove = Time.fixedDeltaTime * 100.0f;
 
-        if (distanceToMove > direction.magnitude)
+        if (direction.magnitude > .25f)
         {
-            transform.position = destination;
+            SetPosition(transform.position + direction * Time.fixedDeltaTime * 100.0f);
             currentTileX = nextTileX;
             currentTileY = nextTileY;
         }
-        else
-        {
-            Vector2 position = new Vector2(transform.position.x, transform.position.y);
-            direction.Normalize();
-            SetPosition(position + direction * distanceToMove);
-        }
+        //else
+        //{
+        //    Vector2 position = new Vector2(transform.position.x, transform.position.y);
+        //    direction.Normalize();
+        //    SetPosition(position + direction * distanceToMove);
+        //}
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(this.transform.position, destination);
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(this.transform.position, direction);
     }
 
 }

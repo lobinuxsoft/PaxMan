@@ -1,57 +1,87 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Map : MonoBehaviour
 {
-    public GameObject SmallDotPrefab;
-    public GameObject LargeDotPrefab;
+    [Tooltip("The base tile map for generate in runtime an obtain data")]
+    [SerializeField] private Tilemap levelMap;
+    [SerializeField] private MapData mapData;
 
-    public int dotCount = 0;
+    [SerializeField] private int dotCount = 0;
     public int DotCount { get { return dotCount; } }
 
-    public List<SmallDot> smallDots = new List<SmallDot>();
-    public List<BigDot> bigDots = new List<BigDot>();
-    public List<PathmapTile> tiles = new List<PathmapTile>();
-    public List<Cherry> cherry = new List<Cherry>();
+    [SerializeField] private List<PathmapTile> tiles = new List<PathmapTile>();
+
+    [SerializeField] private List<Vector3> fruitSpwanPosList = new List<Vector3>();
+    [SerializeField] private List<Vector3> ghostSpawnPosList = new List<Vector3>();
+    private Vector3 playerSpawnPos = Vector3.zero;
+
+    int mapIndex = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         InitPathmap();
+        InitPlayerSpawnPos();
+        InitGhostSpawnPos();
+        InitFruitSpawnPos();
         InitDots();
-        initBigDots();
+        InitBigDots();
     }
 
-    // Update is called once per frame
-    void Update()
+    /// <summary>
+    /// Initializes the construction of the map, where you can pass and where there are walls, and tells the TileMap what to draw.
+    /// </summary>
+    private void InitPathmap()
     {
+        //Initialize random index for mapData.mapsTxtFilePath mapData.wallTile
+        Random.InitState(Mathf.RoundToInt(Time.unscaledTime));
+        mapIndex = Random.Range(0, mapData.mapsTxtFilePath.Length);
+        int tileIndex = Random.Range(0,mapData.wallTiles.Count);
 
-    }
-
-    public bool InitPathmap()
-    {
-        string[] lines = System.IO.File.ReadAllLines("Assets/Data/map.txt");
+        string[] lines = System.IO.File.ReadAllLines(mapData.mapsTxtFilePath[mapIndex]);
         for (int y = 0; y < lines.Length; y++)
         {
             char[] line = lines[y].ToCharArray();
             for (int x = 0; x < line.Length; x++)
             {
-                PathmapTile tile = new PathmapTile();
-                tile.posX = x;
-                tile.posY = y;
-                tile.blocking = line[x] == 'x';
+                PathmapTile tile = new PathmapTile
+                {
+                    posX = x - (line.Length / 2),
+                    posY = -(y - (lines.Length / 2)),
+                    blocking = line[x] == 'x'
+                };
+
+                //Here create a graphic map
+                Vector3Int tilePos = new Vector3Int(tile.posX, tile.posY, 0);
+
+                if (tile.blocking)
+                {
+                    if (levelMap)
+                    {
+                        levelMap.SetTile(tilePos, mapData.wallTiles[tileIndex]);
+                    }
+                }
+                else
+                {
+                    if (levelMap)
+                    {
+                        levelMap.SetTile(tilePos, null);
+                    }
+                }
+
                 tiles.Add(tile);
             }
         }
-        return true;
     }
 
-    public bool InitDots()
+    /// <summary>
+    /// Instance the SmallDot in the scene.
+    /// </summary>
+    private void InitDots()
     {
-        string[] lines = System.IO.File.ReadAllLines("Assets/Data/map.txt");
+        string[] lines = System.IO.File.ReadAllLines(mapData.mapsTxtFilePath[mapIndex]);
         for (int y = 0; y < lines.Length; y++)
         {
             char[] line = lines[y].ToCharArray();
@@ -59,19 +89,29 @@ public class Map : MonoBehaviour
             {
                 if (line[x] == '.')
                 {
-                    SmallDot dot = GameObject.Instantiate(SmallDotPrefab).GetComponent<SmallDot>();
-                    dot.name = string.Format("SmallDot X= {0:0} Y= {1:0}", x, y);
-                    dot.SetPosition(new Vector2((x - (line.Length / 2)) * 22 + 11, (-y + (lines.Length / 2)) * 22));
+                    Vector3Int tilePos = Vector3Int.zero;
+                    tilePos.x = x - (line.Length / 2);
+                    tilePos.y = -(y - (lines.Length / 2));
+
+                    Vector3 worldPos = levelMap.CellToWorld(tilePos);
+                    worldPos.x += .5f;
+                    worldPos.y += .5f;
+
+                    SmallDot dot = Instantiate(mapData.smallDot, levelMap.transform).GetComponent<SmallDot>();
+                    dot.name = string.Format("SmallDot X= {0:0} Y= {1:0}", tilePos.x, tilePos.y);
+                    dot.SetPosition(worldPos);
                     dotCount++;
                 }
             }
         }
-        return true;
     }
 
-    public bool initBigDots()
+    /// <summary>
+    /// Instance the BigDot in the scene.
+    /// </summary>
+    private void InitBigDots()
     {
-        string[] lines = System.IO.File.ReadAllLines("Assets/Data/map.txt");
+        string[] lines = System.IO.File.ReadAllLines(mapData.mapsTxtFilePath[mapIndex]);
         for (int y = 0; y < lines.Length; y++)
         {
             char[] line = lines[y].ToCharArray();
@@ -79,15 +119,109 @@ public class Map : MonoBehaviour
             {
                 if (line[x] == 'o')
                 {
-                    BigDot dot = GameObject.Instantiate(LargeDotPrefab).GetComponent<BigDot>();
-                    dot.SetPosition(new Vector2((x - (line.Length / 2)) * 22 + 11, (-y + (lines.Length / 2)) * 22));
+                    Vector3Int tilePos = Vector3Int.zero;
+                    tilePos.x = x - (line.Length / 2);
+                    tilePos.y = -(y - (lines.Length / 2));
+
+                    Vector3 worldPos = levelMap.CellToWorld(tilePos);
+                    worldPos.x += .5f;
+                    worldPos.y += .5f;
+
+                    BigDot dot = Instantiate(mapData.bigDot).GetComponent<BigDot>();
+                    dot.SetPosition(worldPos);
                     dotCount++;
                 }
             }
         }
-        return true;
     }
 
+    /// <summary>
+    /// Initialize a list of valid positions to instantiate a fruit.
+    /// </summary>
+    public void InitFruitSpawnPos()
+    {
+        string[] lines = System.IO.File.ReadAllLines(mapData.mapsTxtFilePath[mapIndex]);
+        for (int y = 0; y < lines.Length; y++)
+        {
+            char[] line = lines[y].ToCharArray();
+            for (int x = 0; x < line.Length; x++)
+            {
+                if (line[x] == 'o' || line[x] == '.' || line[x] == ' ')
+                {
+                    Vector3Int tilePos = Vector3Int.zero;
+                    tilePos.x = x - (line.Length / 2);
+                    tilePos.y = -(y - (lines.Length / 2));
+
+                    Vector3 worldPos = levelMap.CellToWorld(tilePos);
+                    worldPos.x += .5f;
+                    worldPos.y += .5f;
+
+                    fruitSpwanPosList.Add(worldPos);
+                }
+            }
+        }
+    }
+
+    /// <summary>
+    /// Initialize a list of valid positions to instantiate a ghost.
+    /// </summary>
+    public void InitGhostSpawnPos()
+    {
+        string[] lines = System.IO.File.ReadAllLines(mapData.mapsTxtFilePath[mapIndex]);
+        for (int y = 0; y < lines.Length; y++)
+        {
+            char[] line = lines[y].ToCharArray();
+            for (int x = 0; x < line.Length; x++)
+            {
+                if (line[x] == 'g')
+                {
+                    Vector3Int tilePos = Vector3Int.zero;
+                    tilePos.x = x - (line.Length / 2);
+                    tilePos.y = -(y - (lines.Length / 2));
+
+                    Vector3 worldPos = levelMap.CellToWorld(tilePos);
+                    worldPos.x += .5f;
+                    worldPos.y += .5f;
+
+                    ghostSpawnPosList.Add(worldPos);
+                }
+            }
+        }
+    }
+
+    /// <summary>
+    /// Initialize a valid position to instantiate a player.
+    /// </summary>
+    public void InitPlayerSpawnPos()
+    {
+        string[] lines = System.IO.File.ReadAllLines(mapData.mapsTxtFilePath[mapIndex]);
+        for (int y = 0; y < lines.Length; y++)
+        {
+            char[] line = lines[y].ToCharArray();
+            for (int x = 0; x < line.Length; x++)
+            {
+                if (line[x] == 'p')
+                {
+                    Vector3Int tilePos = Vector3Int.zero;
+                    tilePos.x = x - (line.Length / 2);
+                    tilePos.y = -(y - (lines.Length / 2));
+
+                    Vector3 worldPos = levelMap.CellToWorld(tilePos);
+                    worldPos.x += .5f;
+                    worldPos.y += .5f;
+
+                    playerSpawnPos = worldPos;
+                }
+            }
+        }
+    }
+
+    /// <summary>
+    /// Return is a valid position in the grid.
+    /// </summary>
+    /// <param name="tileX"></param>
+    /// <param name="tileY"></param>
+    /// <returns></returns>
     internal bool TileIsValid(int tileX, int tileY)
     {
         for (int t = 0; t < tiles.Count; t++)
@@ -98,6 +232,14 @@ public class Map : MonoBehaviour
         return false;
     }
 
+    /// <summary>
+    /// Return a path from the curren tile to target tile
+    /// </summary>
+    /// <param name="currentTileX"></param>
+    /// <param name="currentTileY"></param>
+    /// <param name="targetX"></param>
+    /// <param name="targetY"></param>
+    /// <returns></returns>
     public List<PathmapTile> GetPath(int currentTileX, int currentTileY, int targetX, int targetY)
     {
         PathmapTile fromTile = GetTile(currentTileX, currentTileY);
@@ -116,6 +258,13 @@ public class Map : MonoBehaviour
         return null;
     }
 
+    /// <summary>
+    /// Pathfind calculation.
+    /// </summary>
+    /// <param name="fromTile"></param>
+    /// <param name="toTile"></param>
+    /// <param name="path"></param>
+    /// <returns></returns>
     private bool Pathfind(PathmapTile fromTile, PathmapTile toTile, List<PathmapTile> path)
     {
         fromTile.visited = true;
@@ -159,6 +308,12 @@ public class Map : MonoBehaviour
         return false;
     }
 
+    /// <summary>
+    /// Return a PathTile from the list of valid tiles
+    /// </summary>
+    /// <param name="tileX"></param>
+    /// <param name="tileY"></param>
+    /// <returns></returns>
     public PathmapTile GetTile(int tileX, int tileY)
     {
         for (int t = 0; t < tiles.Count; t++)
@@ -170,39 +325,89 @@ public class Map : MonoBehaviour
         return null;
     }
 
-    public bool HasIntersectedDot(Vector2 aPosition)
+    /// <summary>
+    /// Return Tile position from world position
+    /// </summary>
+    /// <param name="worldPos"></param>
+    /// <returns></returns>
+    public Vector3Int GetTileFromWorldPos(Vector3 worldPos)
     {
-        for (int d = 0; d < smallDots.Count; d++)
-        {
-            if ((smallDots[d].GetPosition() - aPosition).magnitude < 5.0f)
-            {
-                GameObject.DestroyImmediate(smallDots[d]);
-                smallDots.Remove(smallDots[d]);
-                return true;
-            }
-        }
-
-        return false;
+        return levelMap.WorldToCell(worldPos);
     }
 
-    public bool HasIntersectedBigDot(Vector2 aPosition)
+    
+    public Vector3 GetWorldPosFromTile(Vector3Int tilePos)
     {
-        for (int d = 0; d < bigDots.Count; d++)
-        {
-            if ((bigDots[d].GetPosition() - aPosition).magnitude < 5.0f)
-            {
-                GameObject.DestroyImmediate(bigDots[d]);
-                bigDots.Remove(bigDots[d]);
-                return true;
-            }
-        }
-
-        return false;
+        return levelMap.CellToWorld(tilePos);
     }
 
-    bool HasIntersectedCherry(Vector2 aPosition)
+    /// <summary>
+    /// Instance a fruit in a valid random position.
+    /// </summary>
+    /// <param name="level"></param>
+    public void SpawnFruit(int level = 0)
     {
-        return true;
+        Random.InitState(Mathf.RoundToInt(Time.unscaledTime));
+
+        int indexFruit = 0;
+
+        switch (level)
+        {
+            case 1:
+                indexFruit = 0;
+                break;
+            case 2:
+                indexFruit = 1;
+                break;
+            case 3:
+            case 4:
+                indexFruit = 2;
+                break;
+            case 5:
+            case 6:
+                indexFruit = 3;
+                break;
+            case 7:
+            case 8:
+                indexFruit = 4;
+                break;
+            case 9:
+            case 10:
+                indexFruit = 5;
+                break;
+            case 11:
+            case 12:
+                indexFruit = 6;
+                break;
+            default:
+                indexFruit = 7;
+                break;
+        }
+
+        Fruit fruit = (Fruit)Instantiate(
+                mapData.fruits[indexFruit],
+                fruitSpwanPosList[Random.Range(0, fruitSpwanPosList.Count)],
+                Quaternion.identity,
+                levelMap.transform
+            );
+    }
+
+    /// <summary>
+    /// Return a ghost spawn position
+    /// </summary>
+    /// <returns></returns>
+    public List<Vector3> GetGhostSpawnPos()
+    {
+        return ghostSpawnPosList;
+    }
+
+    /// <summary>
+    /// Return a player spawn position
+    /// </summary>
+    /// <returns></returns>
+    public Vector3 GetPlayerSpawnPos()
+    {
+        return playerSpawnPos;
     }
 }
 
