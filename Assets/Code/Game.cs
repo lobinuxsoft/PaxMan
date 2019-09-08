@@ -18,6 +18,8 @@ public class Game : MonoBehaviour
 
     private float lastClaimableOn = 0;
 
+    List<Vector3> ghostSpawnPos = new List<Vector3>();
+
     private void Awake()
     {
         instance = this;
@@ -27,13 +29,15 @@ public class Game : MonoBehaviour
     void Start()
     {
         Avatar = Instantiate(PacManPrefab).GetComponent<PacMan>();
-        Avatar.SetPosition(new Vector2Int(13, 16));
+        Avatar.Respawn(Map.GetPlayerSpawnPos(), Map.GetTileFromWorldPos(Map.GetPlayerSpawnPos()));
         lives = 3;
         Ghosts = new List<Ghost>();
-        for(int g = 0; g < 4; g++)
+        ghostSpawnPos = Map.GetGhostSpawnPos();
+
+        for (int g = 0; g < 4; g++)
         {
             Ghosts.Add(Instantiate(GhostPrefab).GetComponent<Ghost>());
-            Ghosts[g].SetPosition(new Vector2Int(13, 13));
+            Ghosts[g].Respawn(ghostSpawnPos[g], Map.GetTileFromWorldPos(ghostSpawnPos[g]));
         }
     }
 
@@ -48,14 +52,16 @@ public class Game : MonoBehaviour
 
         if (Map.DotCount == 0)
         {
+            //TODO victory
             return;
         }
         else if (lives <= 0)
         {
+            //TODO Lose
             return;
         }
 
-        MoveAatar();
+        MoveAvatar();
         for (int g = 0; g < Ghosts.Count; g++)
         {
             Ghosts[g].onUpdate(Map, Avatar);
@@ -68,36 +74,41 @@ public class Game : MonoBehaviour
                 Ghosts[g].isClaimable = false;
             }
         }
+    }
 
-        //TODO Evaluate this lines
-        for (int g = 0; g < Ghosts.Count; g++)
+    /// <summary>
+    /// Set avatar damage and respawn, respawn ghost too.
+    /// </summary>
+    public void AvatarDamage()
+    {
+        UpdateLives(lives - 1);
+
+        if (lives > 0)
         {
-            if ((Ghosts[g].GetPosition() - Avatar.GetPosition()).magnitude < 16.0f)
-            {
-                if (myGhostGhostCounter <= 0.0f)
-                {
-                    UpdateLives(lives - 1);
+            Vector3 playerSpawnPos = Map.GetPlayerSpawnPos();
 
-                    if(lives > 0)
-                    {
-                        Avatar.Respawn(new Vector2(13 * 22, 16 * 22));
-                        Ghosts[g].Respawn(new Vector2(13 * 22, 13 * 22));
-                        break;
-                    }
-                    else
-                    {
-                        GameOver();
-                        return;
-                    }
-                }
-                else
-                {
-                    UpdateScore(50);
-                    Ghosts[g].isDead = true;
-                    Ghosts[g].Die(Map);
-                }
+            Avatar.Respawn(playerSpawnPos, Map.GetTileFromWorldPos(playerSpawnPos));
+
+            for (int i = 0; i < Ghosts.Count; i++)
+            {
+                Ghosts[i].Respawn(ghostSpawnPos[i], Map.GetTileFromWorldPos(ghostSpawnPos[i]));
             }
         }
+        else
+        {
+            GameOver();
+        }
+    }
+
+    /// <summary>
+    /// Kill specific ghost
+    /// </summary>
+    /// <param name="ghostIndex"></param>
+    public void KillGhost(int ghostIndex)
+    {
+        UpdateScore(50);
+        Ghosts[ghostIndex].isDead = true;
+        Ghosts[ghostIndex].Die(Map, ghostIndex);
     }
 
     private void GameOver()
@@ -142,7 +153,7 @@ public class Game : MonoBehaviour
         return true;
     }
 
-    public void MoveAatar()
+    public void MoveAvatar()
     {
         int nextTileX = Avatar.GetCurrentTileX() + nextMovement.x;
         int nextTileY = Avatar.GetCurrentTileY() + nextMovement.y;
@@ -159,6 +170,7 @@ public class Game : MonoBehaviour
     public void CollectSmallDot()
     {
         UpdateScore(10);
+        
     }
 
     public void CollectBigDot()
@@ -169,5 +181,10 @@ public class Game : MonoBehaviour
         {
             Ghosts[g].isClaimable = true;
         }
+    }
+
+    public void CollectFruit(int score)
+    {
+        UpdateScore(score);
     }
 }

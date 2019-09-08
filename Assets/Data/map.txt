@@ -12,7 +12,7 @@ xxxxxx.xxxxx xx xxxxx.xxxxxx
 xxxxxx.xx          xx.xxxxxx
 xxxxxx.xx xxx  xxx xx.xxxxxx
 xxxxxx.xx x      x xx.xxxxxx
-x     .   x eeee x   .     x
+x     .   x gggg x   .     x
 xxxxxx.xx x      x xx.xxxxxx
 xxxxxx.xx xxxxxxxx xx.xxxxxx
 xxxxxx.xx    p     xx.xxxxxx

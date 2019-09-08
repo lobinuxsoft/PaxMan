@@ -15,7 +15,7 @@ MonoBehaviour:
   mapsTxtFilePath:
   - D:/Repositorios/PaxMan/Assets/Data/map.txt
   wallTiles:
-  - {fileID: 11400000, guid: 799304624118a7c4eaf6106484f6765b, type: 2}
+  - {fileID: 11400000, guid: 6cf68122e1dc32e41a4a78f5f92b16bd, type: 2}
   smallDot: {fileID: 1008497766464315601, guid: 9ed397e9b08fc9e429bb3fcb4f4270b6,
     type: 3}
   bigDot: {fileID: 1251887710908455718, guid: dd5952e74777e3b44aa3af401a19f44a, type: 3}

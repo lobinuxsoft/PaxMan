@@ -13,10 +13,10 @@ public class MobileEntity : Entity
         DirectionCount = 4
     };
 
-    protected int currentTileX;
-    protected int currentTileY;
-    protected int nextTileX;
-    protected int nextTileY;
+    [SerializeField] protected int currentTileX;
+    [SerializeField] protected int currentTileY;
+    [SerializeField] protected int nextTileX;
+    [SerializeField] protected int nextTileY;
     protected Rigidbody2D rigidbody2D;
 
 
@@ -54,16 +54,23 @@ public class MobileEntity : Entity
         return currentTileY;
     }
 
-    public void SetPosition(Vector2Int newPos)
+    public override void SetPosition(Vector3 position)
     {
-        transform.position = new Vector2(currentTileX * 22, -currentTileY * 22);
+        if (rigidbody2D)
+        {
+            position.x = position.x + .5f;
+            position.y = position.y + .5f;
+
+            rigidbody2D.MovePosition(position);
+        }
     }
 
-    public void Respawn(Vector2 respawnLocation)
+    public void Respawn(Vector3 respawnLocation, Vector3Int tileLocation)
     {
         SetPosition(respawnLocation);
-        currentTileX = (int)respawnLocation.x / 22;
-        currentTileY = (int)respawnLocation.y / 22;
+
+        currentTileX = tileLocation.x;
+        currentTileY = tileLocation.y;
         nextTileX = currentTileX;
         nextTileY = currentTileY;
     }

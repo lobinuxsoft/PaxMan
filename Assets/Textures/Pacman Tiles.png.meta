@@ -1,0 +1,1475 @@
+fileFormatVersion: 2
+guid: 3ab3fa4ea373d7a438cbfd2651ca105a
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Pacman Tiles_0
+    21300002: Pacman Tiles_1
+    21300004: Pacman Tiles_2
+    21300006: Pacman Tiles_3
+    21300008: Pacman Tiles_4
+    21300010: Pacman Tiles_5
+    21300012: Pacman Tiles_6
+    21300014: Pacman Tiles_7
+    21300016: Pacman Tiles_8
+    21300018: Pacman Tiles_9
+    21300020: Pacman Tiles_10
+    21300022: Pacman Tiles_11
+    21300024: Pacman Tiles_12
+    21300026: Pacman Tiles_13
+    21300028: Pacman Tiles_14
+    21300030: Pacman Tiles_15
+    21300032: Pacman Tiles_16
+    21300034: Pacman Tiles_17
+    21300036: Pacman Tiles_18
+    21300038: Pacman Tiles_19
+    21300040: Pacman Tiles_20
+    21300042: Pacman Tiles_21
+    21300044: Pacman Tiles_22
+    21300046: Pacman Tiles_23
+    21300048: Pacman Tiles_24
+    21300050: Pacman Tiles_25
+    21300052: Pacman Tiles_26
+    21300054: Pacman Tiles_27
+    21300056: Pacman Tiles_28
+    21300058: Pacman Tiles_29
+    21300060: Pacman Tiles_30
+    21300062: Pacman Tiles_31
+    21300064: Pacman Tiles_32
+    21300066: Pacman Tiles_33
+    21300068: Pacman Tiles_34
+    21300070: Pacman Tiles_35
+    21300072: Pacman Tiles_36
+    21300074: Pacman Tiles_37
+    21300076: Pacman Tiles_38
+    21300078: Pacman Tiles_39
+    21300080: Pacman Tiles_40
+    21300082: Pacman Tiles_41
+    21300084: Pacman Tiles_42
+    21300086: Pacman Tiles_43
+    21300088: Pacman Tiles_44
+    21300090: Pacman Tiles_45
+    21300092: Pacman Tiles_46
+  externalObjects: {}
+  serializedVersion: 9
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Pacman Tiles_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: -8, y: -16}
+        - {x: -8, y: 8}
+        - {x: 16, y: 8}
+        - {x: 16, y: 16}
+      tessellationDetail: 0.14
+      bones: []
+      spriteID: 0654042844f7b42468d269bf5b7981ce
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman Tiles_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 8}
+        - {x: -16, y: 16}
+        - {x: 16, y: 16}
+        - {x: 16, y: 8}
+      tessellationDetail: 0
+      bones: []
+      spriteID: a263eec181426f34d9213665fad59b35
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman Tiles_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 8, y: -16}
+        - {x: 8, y: 8}
+        - {x: -16, y: 8}
+        - {x: -16, y: 16}
+        - {x: 16, y: 16}
+        - {x: 16, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37220f3321c92804b8a1a17cb5d39589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman Tiles_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 8, y: -16}
+        - {x: 8, y: 8}
+        - {x: -8, y: 8}
+        - {x: -8, y: -16}
+        - {x: -16, y: -16}
+        - {x: -16, y: 16}
+        - {x: 16, y: 16}
+        - {x: 16, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 304295a3932f790468a2cd15945a3204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman Tiles_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 8, y: -16}
+        - {x: 8, y: -8}
+        - {x: 16, y: -8}
+        - {x: 16, y: -16}
+      - - {x: -8, y: 8}
+        - {x: -8, y: -16}
+        - {x: -16, y: -16}
+        - {x: -16, y: 16}
+        - {x: 16, y: 16}
+        - {x: 16, y: 8}
+      tessellationDetail: 0
+      bones: []
+      spriteID: daa2b7617e11ccb4fb8d09691329331e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman Tiles_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 8, y: -16}
+        - {x: 8, y: -8}
+        - {x: 16, y: -8}
+        - {x: 16, y: -16}
+      - - {x: -16, y: 8}
+        - {x: -16, y: 16}
+        - {x: 16, y: 16}
+        - {x: 16, y: 8}
+      tessellationDetail: 0
+      bones: []
+      spriteID: f09bd370f07cc2346afa3b4a53c2a87b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman Tiles_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 8}
+        - {x: -16, y: 16}
+        - {x: 16, y: 16}
+        - {x: 16, y: 8}
+      - - {x: -16, y: -16}
+        - {x: -16, y: -8}
+        - {x: -8, y: -8}
+        - {x: -8, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 831311afd20354d4c91fbeb14de2042d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman Tiles_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: -16}
+        - {x: -16, y: -8}
+        - {x: -8, y: -8}
+        - {x: -8, y: -16}
+      - - {x: 8, y: -16}
+        - {x: 8, y: 8}
+        - {x: -16, y: 8}
+        - {x: -16, y: 16}
+        - {x: 16, y: 16}
+        - {x: 16, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fbe84ca891e49b478e4228e8820ee11
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman Tiles_8
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 8}
+        - {x: -16, y: 16}
+        - {x: 16, y: 16}
+        - {x: 16, y: 8}
+      - - {x: -16, y: -16}
+        - {x: -16, y: -8}
+        - {x: -8, y: -8}
+        - {x: -8, y: -16}
+      - - {x: 8, y: -16}
+        - {x: 8, y: -8}
+        - {x: 16, y: -8}
+        - {x: 16, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c37ae80e43ab0141b0905550acdee66
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman Tiles_9
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 8, y: 8}
+        - {x: 8, y: 16}
+        - {x: 16, y: 16}
+        - {x: 16, y: 8}
+      - - {x: -16, y: -16}
+        - {x: -16, y: -8}
+        - {x: -8, y: -8}
+        - {x: -8, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60f934a7224e8a449a71c896a054ad59
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman Tiles_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: -16}
+        - {x: -16, y: 16}
+        - {x: -8, y: 16}
+        - {x: -8, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cd502dadb9881a42989d849ddf983cf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman Tiles_11
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2283e15ab7c2d6842a319273173042dc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman Tiles_12
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 8, y: -16}
+        - {x: 8, y: 16}
+        - {x: 16, y: 16}
+        - {x: 16, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56fa2387d5d488d469e0b5f41fdda37f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman Tiles_13
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: -16}
+        - {x: -16, y: 16}
+        - {x: -8, y: 16}
+        - {x: -8, y: -16}
+      - - {x: 8, y: -16}
+        - {x: 8, y: 16}
+        - {x: 16, y: 16}
+        - {x: 16, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 581ce6d114cc35c43b615c314ed895a4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman Tiles_14
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: -16}
+        - {x: -16, y: 16}
+        - {x: -8, y: 16}
+        - {x: -8, y: -16}
+      - - {x: 8, y: -16}
+        - {x: 8, y: -8}
+        - {x: 16, y: -8}
+        - {x: 16, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1e74eba0d897bf4689d56a49ebe14c9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman Tiles_15
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 8, y: -16}
+        - {x: 8, y: -8}
+        - {x: 16, y: -8}
+        - {x: 16, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 006c2075cfee1aa49bc65df2856dfc68
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman Tiles_16
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: -16}
+        - {x: -16, y: -8}
+        - {x: -8, y: -8}
+        - {x: -8, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4d0ac50ff7adae4693e184da11308b9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman Tiles_17
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: -16}
+        - {x: -16, y: -8}
+        - {x: -8, y: -8}
+        - {x: -8, y: -16}
+      - - {x: 8, y: -16}
+        - {x: 8, y: 16}
+        - {x: 16, y: 16}
+        - {x: 16, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 345f0e2bf721c6441af4241f0722b268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman Tiles_18
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: -16}
+        - {x: -16, y: -8}
+        - {x: -8, y: -8}
+        - {x: -8, y: -16}
+      - - {x: 8, y: -16}
+        - {x: 8, y: -8}
+        - {x: 16, y: -8}
+        - {x: 16, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0daae994b174e3448f5f6b69f1c1d25
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman Tiles_19
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 8, y: -16}
+        - {x: 8, y: -8}
+        - {x: 16, y: -8}
+        - {x: 16, y: -16}
+      - - {x: -16, y: 8}
+        - {x: -16, y: 16}
+        - {x: -8, y: 16}
+        - {x: -8, y: 8}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e4e118e97050e64abcbae1f746aa332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman Tiles_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: -16}
+        - {x: -16, y: 16}
+        - {x: -8, y: 16}
+        - {x: -8, y: -8}
+        - {x: 16, y: -8}
+        - {x: 16, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0de6570a6bea4b84b9edd12f9eb1987f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman Tiles_21
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: -16}
+        - {x: -16, y: -8}
+        - {x: 16, y: -8}
+        - {x: 16, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6c0ca9f4283544488e8a35dd2199ad2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman Tiles_22
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: -16}
+        - {x: -16, y: -8}
+        - {x: 8, y: -8}
+        - {x: 8, y: 16}
+        - {x: 16, y: 16}
+        - {x: 16, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35bf209a2dd5df843855747c53b16ba3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman Tiles_23
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: -16}
+        - {x: -16, y: 16}
+        - {x: -8, y: 16}
+        - {x: -8, y: -8}
+        - {x: 8, y: -8}
+        - {x: 8, y: 16}
+        - {x: 16, y: 16}
+        - {x: 16, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c3956914d0854848b8d3cb83d5c0ac6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman Tiles_24
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: -16}
+        - {x: -16, y: 16}
+        - {x: -8, y: 16}
+        - {x: -8, y: -16}
+      - - {x: 8, y: 8}
+        - {x: 8, y: 16}
+        - {x: 16, y: 16}
+        - {x: 16, y: 8}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2055e35ac778daa4aa8f37e5f4dcfdcd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman Tiles_25
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 8, y: 8}
+        - {x: 8, y: 16}
+        - {x: 16, y: 16}
+        - {x: 16, y: 8}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 575bdbb421e70b64ca885cfd6f3c8800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman Tiles_26
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 8}
+        - {x: -16, y: 16}
+        - {x: -8, y: 16}
+        - {x: -8, y: 8}
+      tessellationDetail: 0
+      bones: []
+      spriteID: d13c55e0baeb16b4cb8845cc96c04fdf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman Tiles_27
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 8}
+        - {x: -16, y: 16}
+        - {x: -8, y: 16}
+        - {x: -8, y: 8}
+      - - {x: 8, y: -16}
+        - {x: 8, y: 16}
+        - {x: 16, y: 16}
+        - {x: 16, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27798fcc78890834991884d28a52a4bf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman Tiles_28
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 8}
+        - {x: -16, y: 16}
+        - {x: -8, y: 16}
+        - {x: -8, y: 8}
+      - - {x: 8, y: 8}
+        - {x: 8, y: 16}
+        - {x: 16, y: 16}
+        - {x: 16, y: 8}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 582d23e3ef05a4a45bbee7d0490c3f74
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman Tiles_29
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 8}
+        - {x: -16, y: 16}
+        - {x: -8, y: 16}
+        - {x: -8, y: 8}
+      - - {x: 8, y: 8}
+        - {x: 8, y: 16}
+        - {x: 16, y: 16}
+        - {x: 16, y: 8}
+      - - {x: -16, y: -16}
+        - {x: -16, y: -8}
+        - {x: -8, y: -8}
+        - {x: -8, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f865c1bfdfb92143b137c84c3fab278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman Tiles_30
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 8}
+        - {x: -16, y: 16}
+        - {x: -8, y: 16}
+        - {x: -8, y: 8}
+      - - {x: 8, y: 8}
+        - {x: 8, y: 16}
+        - {x: 16, y: 16}
+        - {x: 16, y: 8}
+      - - {x: 8, y: -16}
+        - {x: 8, y: -8}
+        - {x: 16, y: -8}
+        - {x: 16, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c225110cafa8454fbfe84cd53be356c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman Tiles_31
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 16}
+        - {x: 16, y: 16}
+        - {x: 16, y: 8}
+        - {x: -8, y: 8}
+        - {x: -8, y: -8}
+        - {x: 16, y: -8}
+        - {x: 16, y: -16}
+        - {x: -16, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9cbf71cfabea034aa68ad8e3833654b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman Tiles_32
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 8}
+        - {x: -16, y: 16}
+        - {x: 16, y: 16}
+        - {x: 16, y: 8}
+      - - {x: -16, y: -16}
+        - {x: -16, y: -8}
+        - {x: 16, y: -8}
+        - {x: 16, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad9559fa6eaad504d8cb17d56d9af9df
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman Tiles_33
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: -16}
+        - {x: -16, y: -8}
+        - {x: 8, y: -8}
+        - {x: 8, y: 8}
+        - {x: -16, y: 8}
+        - {x: -16, y: 16}
+        - {x: 16, y: 16}
+        - {x: 16, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b2fe236b44536e46bef65aa769fc05e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman Tiles_34
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -8, y: 8}
+        - {x: -8, y: -8}
+        - {x: -16, y: -16}
+        - {x: -16, y: 16}
+        - {x: 16, y: 16}
+        - {x: 16, y: -16}
+        - {x: -16, y: -16}
+        - {x: -8, y: -8}
+        - {x: 8, y: -8}
+        - {x: 8, y: 8}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34e5080c9d14ce3419b66f56e7dcd0d7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman Tiles_35
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 8, y: 8}
+        - {x: 8, y: 16}
+        - {x: 16, y: 16}
+        - {x: 16, y: 8}
+      - - {x: -16, y: -16}
+        - {x: -16, y: 16}
+        - {x: -8, y: 16}
+        - {x: -8, y: -8}
+        - {x: 16, y: -8}
+        - {x: 16, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: c90363b41c2252e40ab30a5b1a3e9e03
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman Tiles_36
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 8, y: 8}
+        - {x: 8, y: 16}
+        - {x: 16, y: 16}
+        - {x: 16, y: 8}
+      - - {x: -16, y: -16}
+        - {x: -16, y: -8}
+        - {x: 16, y: -8}
+        - {x: 16, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3673a1f83df2543469721244ec017a12
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman Tiles_37
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 8}
+        - {x: -16, y: 16}
+        - {x: -8, y: 16}
+        - {x: -8, y: 8}
+      - - {x: -16, y: -16}
+        - {x: -16, y: -8}
+        - {x: 16, y: -8}
+        - {x: 16, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: af3481ccbb5f2f645bd97708c909a8af
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman Tiles_38
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 8}
+        - {x: -16, y: 16}
+        - {x: -8, y: 16}
+        - {x: -8, y: 8}
+      - - {x: -16, y: -16}
+        - {x: -16, y: -8}
+        - {x: 8, y: -8}
+        - {x: 8, y: 16}
+        - {x: 16, y: 16}
+        - {x: 16, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a8b8bdf216164848ac83841c5d06483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman Tiles_39
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 8}
+        - {x: -16, y: 16}
+        - {x: -8, y: 16}
+        - {x: -8, y: 8}
+      - - {x: 8, y: 8}
+        - {x: 8, y: 16}
+        - {x: 16, y: 16}
+        - {x: 16, y: 8}
+      - - {x: -16, y: -16}
+        - {x: -16, y: -8}
+        - {x: 16, y: -8}
+        - {x: 16, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: c57649e0ddd7eb840bad218a66c0fa24
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman Tiles_40
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 8}
+        - {x: -16, y: 16}
+        - {x: -8, y: 16}
+        - {x: -8, y: 8}
+      - - {x: -16, y: -16}
+        - {x: -16, y: -8}
+        - {x: -8, y: -8}
+        - {x: -8, y: -16}
+      - - {x: 8, y: -16}
+        - {x: 8, y: -8}
+        - {x: 16, y: -8}
+        - {x: 16, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8171cb800c35cb84dbb753d22a0eb41f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman Tiles_41
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 8, y: 8}
+        - {x: 8, y: 16}
+        - {x: 16, y: 16}
+        - {x: 16, y: 8}
+      - - {x: -16, y: -16}
+        - {x: -16, y: -8}
+        - {x: -8, y: -8}
+        - {x: -8, y: -16}
+      - - {x: 8, y: -16}
+        - {x: 8, y: -8}
+        - {x: 16, y: -8}
+        - {x: 16, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a4f0df2e2a868b40a48ea115698e2a0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman Tiles_42
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 8, y: 8}
+        - {x: 8, y: 16}
+        - {x: 16, y: 16}
+        - {x: 16, y: 8}
+      - - {x: 8, y: -16}
+        - {x: 8, y: -8}
+        - {x: 16, y: -8}
+        - {x: 16, y: -16}
+      - - {x: -16, y: -16}
+        - {x: -16, y: 16}
+        - {x: -8, y: 16}
+        - {x: -8, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98558b4e64b95f947a8eeb9fcfc3916e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman Tiles_43
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 8, y: 8}
+        - {x: 8, y: 16}
+        - {x: 16, y: 16}
+        - {x: 16, y: 8}
+      - - {x: 8, y: -16}
+        - {x: 8, y: -8}
+        - {x: 16, y: -8}
+        - {x: 16, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4996d39c43dbe4a40b3f0df0ae0c155f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman Tiles_44
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 8}
+        - {x: -16, y: 16}
+        - {x: -8, y: 16}
+        - {x: -8, y: 8}
+      - - {x: -16, y: -16}
+        - {x: -16, y: -8}
+        - {x: -8, y: -8}
+        - {x: -8, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dfcb4100f24a974ebac59c8bb876f6a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman Tiles_45
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 8}
+        - {x: -16, y: 16}
+        - {x: -8, y: 16}
+        - {x: -8, y: 8}
+      - - {x: -16, y: -16}
+        - {x: -16, y: -8}
+        - {x: -8, y: -8}
+        - {x: -8, y: -16}
+      - - {x: 8, y: -16}
+        - {x: 8, y: 16}
+        - {x: 16, y: 16}
+        - {x: 16, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 619d7070607bb9a4c9fc4667ae2fe206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman Tiles_46
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 8, y: 8}
+        - {x: 8, y: 16}
+        - {x: 16, y: 16}
+        - {x: 16, y: 8}
+      - - {x: -16, y: 8}
+        - {x: -16, y: 16}
+        - {x: -8, y: 16}
+        - {x: -8, y: 8}
+      - - {x: -16, y: -16}
+        - {x: -16, y: -8}
+        - {x: -8, y: -8}
+        - {x: -8, y: -16}
+      - - {x: 8, y: -16}
+        - {x: 8, y: -8}
+        - {x: 16, y: -8}
+        - {x: 16, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 501ccfbc8ea14934589af0865db2f6f4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: a9342efe2c8e6004d8daed90b97888fd
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

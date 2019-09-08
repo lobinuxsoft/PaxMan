@@ -145,9 +145,6 @@ MonoBehaviour:
   levelMap: {fileID: 588669466}
   mapData: {fileID: 11400000, guid: 6bdff9fe8f4abff42936a0a90ace831d, type: 2}
   dotCount: 0
-  smallDots: []
-  bigDots: []
-  cherry: []
 --- !u!156049354 &190100331
 Grid:
   m_ObjectHideFlags: 0
@@ -227,7 +224,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 15.5
+  orthographic size: 18
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -290,7 +287,7 @@ Tilemap:
   m_TileMatrixArray: []
   m_TileColorArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.9436171, b: 1, a: 1}
   m_Origin: {x: 0, y: 0, z: 0}
   m_Size: {x: 0, y: 0, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}

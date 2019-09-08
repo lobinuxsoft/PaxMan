@@ -135,9 +135,11 @@ public class Ghost : MobileEntity
         throw new NotImplementedException();
     }
 
-    public void Die(Map map)
+    public void Die(Map map, int ghostIndex)
     {
+        Vector3 spawnPos = map.GetGhostSpawnPos()[ghostIndex];
+        Vector3Int spawnTile = map.GetTileFromWorldPos(spawnPos);
         path.Clear();
-        path = map.GetPath(currentTileX, currentTileY, 13, 13);
+        path = map.GetPath(currentTileX, currentTileY, spawnTile.x, spawnTile.y);
     }
 }
