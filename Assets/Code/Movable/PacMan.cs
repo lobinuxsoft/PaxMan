@@ -2,41 +2,63 @@
 
 public class PacMan : MobileEntity
 {
-    Vector2 destination = Vector2.zero;
+    [SerializeField] float moveSpeed = 300f;
+    [SerializeField] LayerMask collisionMoveLayer;
     Vector3 direction = Vector3.zero;
+    bool isHit = false;
+
+    Animator animator;
+
+    protected override void Start()
+    {
+        base.Start();
+        animator = GetComponent<Animator>();
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
-
-        destination = Game.instance.Map.GetWorldPosFromTile(new Vector3Int(nextTileX, nextTileY, 0));
-        if (destination == Vector2.zero)
+        if (direction.magnitude < .1f)
             return;
 
-        direction = new Vector3(destination.x - transform.position.x, destination.y - transform.position.y);
-
-        float distanceToMove = Time.fixedDeltaTime * 100.0f;
-
-        if (direction.magnitude > .25f)
+        isHit = Physics2D.Raycast(this.transform.position, direction, .5f, collisionMoveLayer);
+        if (!isHit)
         {
-            SetPosition(transform.position + direction * Time.fixedDeltaTime * 100.0f);
+            MoveToDirection(direction * Time.fixedDeltaTime * moveSpeed);
+
+            animator.SetFloat("Horizontal", direction.x);
+            animator.SetFloat("Vertical", direction.y);
+
+            animator.speed = moveSpeed * .01f;
+
             currentTileX = nextTileX;
             currentTileY = nextTileY;
         }
-        //else
-        //{
-        //    Vector2 position = new Vector2(transform.position.x, transform.position.y);
-        //    direction.Normalize();
-        //    SetPosition(position + direction * distanceToMove);
-        //}
+        else
+        {
+            MoveToDirection(Vector2.zero);
+            animator.speed = 0;
+        }
     }
 
+    public void SetDirectionToMove(Vector2Int value)
+    {
+        direction = new Vector3(value.x, value.y, 0f);
+    }
+
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawLine(this.transform.position, destination);
-
-        Gizmos.color = Color.red;
-        Gizmos.DrawRay(this.transform.position, direction);
+        if (isHit)
+        {
+            Gizmos.color = Color.red;
+        }
+        else
+        {
+            Gizmos.color = Color.blue;
+        }
+        Gizmos.DrawRay(this.transform.position, Vector3.ClampMagnitude(direction, .5f));
     }
+#endif
 
 }

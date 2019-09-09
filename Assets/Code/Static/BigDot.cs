@@ -7,6 +7,7 @@ public class BigDot : StaticEntity
         if (collision.CompareTag("Player"))
         {
             OnCollectionEvent.Invoke();
+            Destroy(this.gameObject);
         }
     }
 }

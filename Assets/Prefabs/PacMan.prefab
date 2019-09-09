@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 5921591256951783516}
   - component: {fileID: 2893085533302041817}
   - component: {fileID: 7126642809575849600}
-  m_Layer: 0
+  - component: {fileID: 8774440554983826453}
+  m_Layer: 8
   m_Name: PacMan
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -99,6 +100,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65bf1db91f85234459b0c9077ab458fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentTileX: 0
+  currentTileY: 0
+  nextTileX: 0
+  nextTileY: 0
+  moveSpeed: 300
+  collisionMoveLayer:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!58 &2893085533302041817
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -114,7 +123,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.48
 --- !u!50 &7126642809575849600
 Rigidbody2D:
   serializedVersion: 4
@@ -123,16 +132,35 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3787037616449342003}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
-  m_UseFullKinematicContacts: 1
-  m_UseAutoMass: 0
-  m_Mass: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 1
+  m_Mass: 0.72382295
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_AngularDrag: 0
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!95 &8774440554983826453
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3787037616449342003}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e24b30a676e2f9e4fbaadc31a66bd5ff, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

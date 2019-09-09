@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6979362425957497844}
   - component: {fileID: 1008497766464315601}
   - component: {fileID: 1818632455100491822}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SmallDot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,4 +113,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.3
+  m_Radius: 0.2

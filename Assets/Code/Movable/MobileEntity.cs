@@ -21,7 +21,7 @@ public class MobileEntity : Entity
 
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         nextTileX = currentTileX;
@@ -54,14 +54,11 @@ public class MobileEntity : Entity
         return currentTileY;
     }
 
-    public override void SetPosition(Vector3 position)
+    protected virtual void MoveToDirection(Vector2 direction)
     {
         if (rigidbody2D)
         {
-            position.x = position.x + .5f;
-            position.y = position.y + .5f;
-
-            rigidbody2D.MovePosition(position);
+            rigidbody2D.velocity = direction;
         }
     }
 

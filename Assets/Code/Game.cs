@@ -10,7 +10,7 @@ public class Game : MonoBehaviour
 
     public Map Map;
     public PacMan Avatar;
-    public Vector2Int nextMovement;
+    public Vector2Int moveDirection;
     public List<Ghost> Ghosts;
     public int lives;
     public int score;
@@ -128,21 +128,21 @@ public class Game : MonoBehaviour
 
     public bool HandleInput()
     {
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetAxis("Vertical") > 0)
         {
-            nextMovement = new Vector2Int(0, 1);
+            moveDirection = new Vector2Int(0, 1);
         }
-        else if (Input.GetKey(KeyCode.DownArrow))
+        else if (Input.GetAxis("Vertical") < 0)
         {
-            nextMovement = new Vector2Int(0, -1);
+            moveDirection = new Vector2Int(0, -1);
         }
-        else if (Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetAxis("Horizontal") > 0)
         {
-            nextMovement = new Vector2Int(1, 0);
+            moveDirection = new Vector2Int(1, 0);
         }
-        else if (Input.GetKey(KeyCode.LeftArrow))
+        else if (Input.GetAxis("Horizontal") < 0)
         {
-            nextMovement = new Vector2Int(-1, 0);
+            moveDirection = new Vector2Int(-1, 0);
         }
 
         if (Input.GetKey(KeyCode.Escape))
@@ -155,16 +155,18 @@ public class Game : MonoBehaviour
 
     public void MoveAvatar()
     {
-        int nextTileX = Avatar.GetCurrentTileX() + nextMovement.x;
-        int nextTileY = Avatar.GetCurrentTileY() + nextMovement.y;
+        //int nextTileX = Avatar.GetCurrentTileX() + moveDirection.x;
+        //int nextTileY = Avatar.GetCurrentTileY() + moveDirection.y;
 
-        if (Avatar.IsAtDestination())
-        {
-            if (Map.TileIsValid(nextTileX, nextTileY))
-            {
-                Avatar.SetNextTile(new Vector2Int(nextTileX, nextTileY));
-            }
-        }
+        //if (Avatar.IsAtDestination())
+        //{
+        //    if (Map.TileIsValid(nextTileX, nextTileY))
+        //    {
+        //        Avatar.SetNextTile(new Vector2Int(nextTileX, nextTileY));
+        //    }
+        //}
+
+        Avatar.SetDirectionToMove(moveDirection);
     }
 
     public void CollectSmallDot()
