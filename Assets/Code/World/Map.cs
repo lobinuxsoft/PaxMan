@@ -403,7 +403,7 @@ public class Map : MonoBehaviour
     /// Instance a fruit in a valid random position.
     /// </summary>
     /// <param name="level"></param>
-    public void SpawnFruit(int level = 0)
+    public void SpawnFruit(int level = 1)
     {
         Random.InitState(Mathf.RoundToInt(Time.unscaledTime));
 
