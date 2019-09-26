@@ -2,6 +2,8 @@
 
 [RequireComponent(typeof(CircleCollider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(ParticleSystem))]
+
 public class MobileEntity : Entity
 {
     public enum MovementDirection : int
@@ -17,13 +19,15 @@ public class MobileEntity : Entity
     [SerializeField] protected int currentTileY;
     [SerializeField] protected int nextTileX;
     [SerializeField] protected int nextTileY;
-    protected Rigidbody2D rigidbody2D;
 
+    protected Rigidbody2D mRigidbody2D;
+    protected ParticleSystem mParticle;
 
     // Start is called before the first frame update
     protected virtual void Start()
     {
-        rigidbody2D = GetComponent<Rigidbody2D>();
+        mRigidbody2D = GetComponent<Rigidbody2D>();
+        mParticle = GetComponent<ParticleSystem>();
         nextTileX = currentTileX;
         nextTileY = currentTileY;
     }
@@ -56,14 +60,20 @@ public class MobileEntity : Entity
 
     protected virtual void MoveToDirection(Vector2 direction)
     {
-        if (rigidbody2D)
+        if (mRigidbody2D)
         {
-            rigidbody2D.velocity = direction;
+            mRigidbody2D.velocity = direction;
         }
     }
 
-    public void Respawn(Vector3 respawnLocation, Vector3Int tileLocation)
+    public virtual void Respawn(Vector3 respawnLocation, Vector3Int tileLocation)
     {
+        if (mParticle)
+            mParticle.Emit(50);
+
+        if(mRigidbody2D)
+            mRigidbody2D.velocity = Vector2.zero;
+
         SetPosition(respawnLocation);
 
         currentTileX = tileLocation.x;

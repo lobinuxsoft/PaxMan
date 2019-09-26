@@ -62,6 +62,7 @@ public class Game : MonoBehaviour
         }
 
         MoveAvatar();
+
         for (int g = 0; g < Ghosts.Count; g++)
         {
             Ghosts[g].onUpdate(Map, Avatar);
@@ -81,13 +82,14 @@ public class Game : MonoBehaviour
     /// </summary>
     public void AvatarDamage()
     {
-        UpdateLives(lives - 1);
+        UpdateLives(-1);
 
         if (lives > 0)
         {
             Vector3 playerSpawnPos = Map.GetPlayerSpawnPos();
 
             Avatar.Respawn(playerSpawnPos, Map.GetTileFromWorldPos(playerSpawnPos));
+            moveDirection = Vector2Int.zero;
 
             for (int i = 0; i < Ghosts.Count; i++)
             {
@@ -145,10 +147,16 @@ public class Game : MonoBehaviour
             moveDirection = new Vector2Int(-1, 0);
         }
 
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            AvatarDamage();
+        }
+
         if (Input.GetKey(KeyCode.Escape))
         {
             return false;
         }
+
 
         return true;
     }
