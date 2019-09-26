@@ -127,7 +127,7 @@ public class Map : MonoBehaviour
                     worldPos.x += .5f;
                     worldPos.y += .5f;
 
-                    BigDot dot = Instantiate(mapData.bigDot).GetComponent<BigDot>();
+                    BigDot dot = Instantiate(mapData.bigDot, levelMap.transform).GetComponent<BigDot>();
                     dot.SetPosition(worldPos);
                     dotCount++;
                 }
@@ -338,7 +338,12 @@ public class Map : MonoBehaviour
     
     public Vector3 GetWorldPosFromTile(Vector3Int tilePos)
     {
-        return levelMap.CellToWorld(tilePos);
+        Vector3 returnPos = levelMap.CellToWorld(tilePos);
+
+        returnPos.x = returnPos.x + .5f;
+        returnPos.y = returnPos.y + .5f;
+
+        return returnPos;
     }
 
     /// <summary>

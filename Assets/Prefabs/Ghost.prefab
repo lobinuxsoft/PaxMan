@@ -99,6 +99,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0eda6de1df662d4aa915b09871ca498, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentTileX: 0
+  currentTileY: 0
+  nextTileX: 0
+  nextTileY: 0
   isClaimable: 0
   isDead: 0
   desiredMovementX: 0
@@ -119,7 +123,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 0.5
 --- !u!50 &3604259019825672231
 Rigidbody2D:
   serializedVersion: 4
@@ -130,7 +134,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 4519282131420516549}
   m_BodyType: 1
   m_Simulated: 1
-  m_UseFullKinematicContacts: 1
+  m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
@@ -140,4 +144,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 4
+  m_Constraints: 7
