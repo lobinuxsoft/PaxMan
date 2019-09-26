@@ -180,7 +180,6 @@ public class Game : MonoBehaviour
     public void CollectSmallDot()
     {
         UpdateScore(10);
-        
     }
 
     public void CollectBigDot()

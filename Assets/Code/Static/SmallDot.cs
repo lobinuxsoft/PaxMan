@@ -6,8 +6,13 @@ public class SmallDot : StaticEntity
     {
         if (collision.CompareTag("Player"))
         {
-            OnCollectionEvent.Invoke();
+            this.OnIntecractEvent.Invoke();
             Destroy(this.gameObject);
         }
+    }
+
+    private void OnDestroy()
+    {
+        this.OnIntecractEvent.RemoveAllListeners();
     }
 }

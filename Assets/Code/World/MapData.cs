@@ -17,7 +17,7 @@ public class MapData : ScriptableObject
     public StaticEntity smallDot;
     public StaticEntity bigDot;
     public List<StaticEntity> fruits;
-
+    public StaticEntity teleport;
 
     private void Awake()
     {

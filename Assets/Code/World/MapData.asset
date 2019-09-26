@@ -20,3 +20,5 @@ MonoBehaviour:
     type: 3}
   bigDot: {fileID: 1251887710908455718, guid: dd5952e74777e3b44aa3af401a19f44a, type: 3}
   fruits: []
+  teleport: {fileID: 2110897435085460333, guid: b6c5916cce0bd3342a87691609b74bac,
+    type: 3}

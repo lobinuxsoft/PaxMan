@@ -28,6 +28,7 @@ public class Map : MonoBehaviour
         InitFruitSpawnPos();
         InitDots();
         InitBigDots();
+        InitTeleports();
     }
 
     /// <summary>
@@ -100,6 +101,10 @@ public class Map : MonoBehaviour
                     SmallDot dot = Instantiate(mapData.smallDot, levelMap.transform).GetComponent<SmallDot>();
                     dot.name = string.Format("SmallDot X= {0:0} Y= {1:0}", tilePos.x, tilePos.y);
                     dot.SetPosition(worldPos);
+
+                    //Add listener for collection event
+                    dot.AddOnInteractEvent(Game.instance.CollectSmallDot);
+
                     dotCount++;
                 }
             }
@@ -129,8 +134,56 @@ public class Map : MonoBehaviour
 
                     BigDot dot = Instantiate(mapData.bigDot, levelMap.transform).GetComponent<BigDot>();
                     dot.SetPosition(worldPos);
+
+                    //Add listener for collection event
+                    dot.AddOnInteractEvent(Game.instance.CollectBigDot);
+
                     dotCount++;
                 }
+            }
+        }
+    }
+
+    private void InitTeleports()
+    {
+        string[] lines = System.IO.File.ReadAllLines(mapData.mapsTxtFilePath[mapIndex]);
+
+        List<Teleport> teleports = new List<Teleport>();
+
+        //Create a teleports and add to a list
+        for (int y = 0; y < lines.Length; y++)
+        {
+            char[] line = lines[y].ToCharArray();
+            for (int x = 0; x < line.Length; x++)
+            {
+                if (line[x] == 't')
+                {
+                    Vector3Int tilePos = Vector3Int.zero;
+                    tilePos.x = x - (line.Length / 2);
+                    tilePos.y = -(y - (lines.Length / 2));
+
+                    Vector3 worldPos = levelMap.CellToWorld(tilePos);
+                    worldPos.x += .5f;
+                    worldPos.y += .5f;
+
+                    Teleport teleport = Instantiate(mapData.teleport, levelMap.transform).GetComponent<Teleport>();
+                    teleport.SetPosition(worldPos);
+
+                    teleports.Add(teleport);
+                }
+            }
+        }
+
+        //Conecting teleport
+        for (int t = 0; t < teleports.Count; t++)
+        {
+            if (t > 0)
+            {
+                //Conect actual teleport whit previous in the list
+                teleports[t].SetConection(teleports[t - 1]);
+
+                //Conect previous teleport in the list whit the alctual
+                teleports[t-1].SetConection(teleports[t]);
             }
         }
     }
@@ -395,6 +448,9 @@ public class Map : MonoBehaviour
                 Quaternion.identity,
                 levelMap.transform
             );
+
+        //Add listener for collection event
+        fruit.AddOnInteractEvent(delegate { Game.instance.CollectFruit(fruit.GetFruitScore()); });
     }
 
     /// <summary>
