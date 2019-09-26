@@ -19,4 +19,14 @@ MonoBehaviour:
   smallDot: {fileID: 1008497766464315601, guid: 9ed397e9b08fc9e429bb3fcb4f4270b6,
     type: 3}
   bigDot: {fileID: 1251887710908455718, guid: dd5952e74777e3b44aa3af401a19f44a, type: 3}
-  fruits: []
+  fruits:
+  - {fileID: 2643400928804144728, guid: 4baf4643225fe5742ab57702feec0223, type: 3}
+  - {fileID: 7873618940793358883, guid: 4ddab9691c529474ab2f60b5a3aed73f, type: 3}
+  - {fileID: 8691728778545952360, guid: 93be2b82135c34041bc0ab796ebae260, type: 3}
+  - {fileID: 4053755537383893650, guid: debeee1d2e9a0864298e1ad66ee335f9, type: 3}
+  - {fileID: 2582435405970783701, guid: 492afd39f837f584ba76a94259fba0eb, type: 3}
+  - {fileID: 5188778264059363661, guid: 0bd39b986a9aa6342ae877f2909b5249, type: 3}
+  - {fileID: 5486128163789564541, guid: 97c92bcebc9240d4b9c5f0bc1a67309a, type: 3}
+  - {fileID: 6516520971634142056, guid: 86dd28dd1f1a5714d8c2738b16ee40e9, type: 3}
+  teleport: {fileID: 2110897435085460333, guid: b6c5916cce0bd3342a87691609b74bac,
+    type: 3}

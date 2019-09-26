@@ -14,11 +14,14 @@ public class Game : MonoBehaviour
     public List<Ghost> Ghosts;
     public int lives;
     public int score;
+    public int level = 1;
     public float myGhostGhostCounter = 20f;
 
     private float lastClaimableOn = 0;
 
     List<Vector3> ghostSpawnPos = new List<Vector3>();
+
+    private int dotsEatCount = 0;
 
     private void Awake()
     {
@@ -147,6 +150,7 @@ public class Game : MonoBehaviour
             moveDirection = new Vector2Int(-1, 0);
         }
 
+        //Only for test, quit this if
         if (Input.GetKeyDown(KeyCode.R))
         {
             AvatarDamage();
@@ -180,12 +184,26 @@ public class Game : MonoBehaviour
     public void CollectSmallDot()
     {
         UpdateScore(10);
-        
+
+        dotsEatCount++;
+
+        if (CanSpawnFruit())
+        {
+            Map.SpawnFruit(level);
+        }
     }
 
     public void CollectBigDot()
     {
         UpdateScore(20);
+
+        dotsEatCount++;
+
+        if (CanSpawnFruit())
+        {
+            Map.SpawnFruit(level);
+        }
+
         lastClaimableOn = Time.time;
         for (int g = 0; g < Ghosts.Count; g++)
         {
@@ -196,5 +214,20 @@ public class Game : MonoBehaviour
     public void CollectFruit(int score)
     {
         UpdateScore(score);
+    }
+
+    bool CanSpawnFruit()
+    {
+        bool retBool = false;
+
+        switch (dotsEatCount)
+        {
+            case 70:
+            case 190:
+                retBool = true;
+                break;
+        }
+
+        return retBool;
     }
 }
